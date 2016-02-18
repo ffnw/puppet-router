@@ -4,7 +4,7 @@
   "author": "Simon Kurka",
   "summary": "Manages some router specific settings on Linux machines for the Freifunk Nordwest network.",
   "license": "GPLv2",
-  "source": "https://github.com/ffnw/puppet-router",
+  "source": "https://github.com/ffnw/puppet-router.git",
   "project_page": "https://github.com/ffnw/puppet-router",
   "issues_url": "https://github.com/ffnw/puppet-router/issues",
   "dependencies": [
