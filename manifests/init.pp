@@ -2,6 +2,8 @@ class router (
   
 ) inherits router::params {
 
-  require router::config
+  class { 'router::config': }
+
+  contain router::config
 
 }
