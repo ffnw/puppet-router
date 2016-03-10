@@ -1,4 +1,4 @@
-class router::config {
+class router::config inherits router {
 
   file_line {
     default:
@@ -27,11 +27,17 @@ class router::config {
       match  => '^net.core.wmem_default=';
   }
 
-  network::inet::loopback::post_up { '/bin/ip rule add pref 100 iif lo lookup main': }
-  network::inet::loopback::post_up { '/bin/ip rule add pref 101 iif lo lookup default': }
-  network::inet::loopback::post_up { '/bin/ip rule add pref 1000 lookup 42': }
-  network::inet::loopback::post_up { '/bin/ip rule add pref 1001 unreachable': }
+  $subnet.each | $value | {
+    network::inet::loopback::post_up { "/bin/ip -4 rule add pref 10 from ${value} lookup 42": }
+  }
+  network::inet::loopback::post_up { '/bin/ip -4 rule add pref 100 iif lo lookup main': }
+  network::inet::loopback::post_up { '/bin/ip -4 rule add pref 101 iif lo lookup default': }
+  network::inet::loopback::post_up { '/bin/ip -4 rule add pref 1000 lookup 42': }
+  network::inet::loopback::post_up { '/bin/ip -4 rule add pref 1001 unreachable': }
 
+  $subnet6.each | $value | {
+    network::inet6::loopback::post_up { "/bin/ip -6 rule add pref 10 from ${value} lookup 42": }
+  }
   network::inet6::loopback::post_up { '/bin/ip -6 rule add pref 100 iif lo lookup main': }
   network::inet6::loopback::post_up { '/bin/ip -6 rule add pref 101 iif lo lookup default': }
   network::inet6::loopback::post_up { '/bin/ip -6 rule add pref 1000 lookup 42': }

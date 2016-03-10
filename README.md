@@ -19,18 +19,26 @@ Manages some router specific settings on Linux machines for the Freifunk Nordwes
 ### Beginning with router
 
 ```puppet
-require router
+class { 'router':
+  subnet  => [],
+  subnet6 => [],
+}
 ```
 
 ## Usage
 
 ```puppet
-require router
+class { 'router':
+  subnet  => [],
+  subnet6 => [],
+}
 ```
 
 ## Reference
 
 * class router
+  * subnet (optional, default [])
+  * subnet6 (optional, default [])
 
 ## Limitations
 
