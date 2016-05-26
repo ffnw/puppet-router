@@ -25,6 +25,24 @@ class router::config inherits router {
     'router-net.core.wmem_default':
       line   => 'net.core.wmem_default=83886080',
       match  => '^net.core.wmem_default=';
+    'router-net.ipv6.neigh.default.gc_thresh3':
+      line   => 'net.ipv6.neigh.default.gc_thresh3=4096',
+      match  => '^net.ipv6.neigh.default.gc_thresh3=';
+    'router-net.ipv6.neigh.default.gc_thresh2':
+      line   => 'net.ipv6.neigh.default.gc_thresh2=2048',
+      match  => '^net.ipv6.neigh.default.gc_thresh2=';
+    'router-net.ipv6.neigh.default.gc_thresh1':
+      line   => 'net.ipv6.neigh.default.gc_thresh1=1024',
+      match  => '^net.ipv6.neigh.default.gc_thresh1=';
+    'router-net.ipv4.netfilter.ip_conntrack_max':
+      line   => 'net.ipv4.netfilter.ip_conntrack_max=290000',
+      match  => '^net.ipv4.netfilter.ip_conntrack_max=';
+    'router-kernel.panic':
+      line   => 'kernel.panic=30',
+      match  => '^kernel.panic=';
+    'router-kernel.panic_on_oops':
+      line   => 'kernel.panic_on_oops=30',
+      match  => '^kernel.panic_on_oops=';
   }
 
   $subnet.each | $value | {
