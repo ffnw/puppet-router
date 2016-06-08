@@ -47,6 +47,7 @@ class router::config inherits router {
 
   $subnet.each | $value | {
     network::inet::loopback::post_up { "/bin/ip -4 rule add pref 10 from ${value} lookup 42": }
+    network::inet::loopback::post_up { "/bin/ip -4 rule add pref 10 to ${value} lookup 42": }
   }
   network::inet::loopback::post_up { '/bin/ip -4 rule add pref 100 iif lo lookup main': }
   network::inet::loopback::post_up { '/bin/ip -4 rule add pref 101 iif lo lookup default': }
@@ -55,6 +56,7 @@ class router::config inherits router {
 
   $subnet6.each | $value | {
     network::inet6::loopback::post_up { "/bin/ip -6 rule add pref 10 from ${value} lookup 42": }
+    network::inet6::loopback::post_up { "/bin/ip -6 rule add pref 10 to ${value} lookup 42": }
   }
   network::inet6::loopback::post_up { '/bin/ip -6 rule add pref 100 iif lo lookup main': }
   network::inet6::loopback::post_up { '/bin/ip -6 rule add pref 101 iif lo lookup default': }
