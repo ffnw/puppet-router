@@ -26,14 +26,23 @@ class router::config inherits router {
       line   => 'net.core.wmem_default=83886080',
       match  => '^net.core.wmem_default=';
     'router-net.ipv6.neigh.default.gc_thresh3':
-      line   => 'net.ipv6.neigh.default.gc_thresh3=4096',
+      line   => 'net.ipv6.neigh.default.gc_thresh3=8192',
       match  => '^net.ipv6.neigh.default.gc_thresh3=';
     'router-net.ipv6.neigh.default.gc_thresh2':
-      line   => 'net.ipv6.neigh.default.gc_thresh2=2048',
+      line   => 'net.ipv6.neigh.default.gc_thresh2=4096',
       match  => '^net.ipv6.neigh.default.gc_thresh2=';
     'router-net.ipv6.neigh.default.gc_thresh1':
-      line   => 'net.ipv6.neigh.default.gc_thresh1=1024',
+      line   => 'net.ipv6.neigh.default.gc_thresh1=2048',
       match  => '^net.ipv6.neigh.default.gc_thresh1=';
+    'router-net.ipv4.neigh.default.gc_thresh3':
+      line   => 'net.ipv4.neigh.default.gc_thresh3=8192',
+      match  => '^net.ipv4.neigh.default.gc_thresh3=';
+    'router-net.ipv4.neigh.default.gc_thresh2':
+      line   => 'net.ipv4.neigh.default.gc_thresh2=4096',
+      match  => '^net.ipv4.neigh.default.gc_thresh2=';
+    'router-net.ipv4.neigh.default.gc_thresh1':
+      line   => 'net.ipv4.neigh.default.gc_thresh1=2048',
+      match  => '^net.ipv4.neigh.default.gc_thresh1=';
     'router-net.ipv4.netfilter.ip_conntrack_max':
       line   => 'net.ipv4.netfilter.ip_conntrack_max=290000',
       match  => '^net.ipv4.netfilter.ip_conntrack_max=';
