@@ -44,8 +44,11 @@ class router::config inherits router {
       line   => 'net.ipv4.neigh.default.gc_thresh1=2048',
       match  => '^net.ipv4.neigh.default.gc_thresh1=';
     'router-net.ipv4.netfilter.ip_conntrack_max':
-      line   => 'net.ipv4.netfilter.ip_conntrack_max=524288',
+      line   => '',
       match  => '^net.ipv4.netfilter.ip_conntrack_max=';
+    'router-net.nf_conntrack_max':
+      line   => 'net.nf_conntrack_max=2147483647',
+      match  => '^net.nf_conntrack_max=';
     'router-kernel.panic':
       line   => 'kernel.panic=30',
       match  => '^kernel.panic=';
